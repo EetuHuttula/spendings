@@ -7,12 +7,11 @@ CREATE TABLE  users(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id));
 CREATE TABLE spendings (
-    id INTEGER,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     month VARCHAR(10),
     user_id INTEGER NOT NULL,
     description VARCHAR,
     amount INTEGER,
     time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id)
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
