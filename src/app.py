@@ -1,43 +1,52 @@
 import sqlite3
-from src.repositories.spendings_repository import search_spendings, insert_spendings, search_spendings_based_on_month, delete_spendings, edit_spendings
+from db import create_connection, initialize_database
+from repositories.spendings_repository import SpendingsRepository
+from cli.spendigs_cli import show_spendings, add_spending, search_by_month, edit_spending, delete_spending
+
 
 def main():
+    conn = create_connection()
 
-      menu_actions = {
-            's': search_spendings,
-            'm': search_spendings_based_on_month,
-            'a': insert_spendings,
-            'd': delete_spendings,
-            'e': edit_spendings
-      }
+    initialize_database(conn)
 
-      while True:
-            action = input(
-                  "\nLets see what happens\n"
-                  "(A)dd spendings \n"
-                  "(D)elete spendings\n"
-                  "(E)dit spendings row\n"
-                  "(S)ee all spendings\n"
-                  "(M)onthly spesific spendings\n"
-                  "(Q)uit \n"
-            ).lower().strip()
+    repository = SpendingsRepository(conn)
 
-            if action == 'q':
-                  break 
-            actions = menu_actions.get(action)
-            if actions:
-                  actions()
-            else:
-                  print("invalid choice")
+    while True:
+        print()
+        print("===== SPENDINGS =====")
+        print("1. Näytä menot")
+        print("2. Lisää meno")
+        print("3. Näytä kuukauden menot")
+        print("4. Muokkaa menoa")
+        print("5. Poista meno")
+        print("6. Lopeta")
 
-            
+        choice = input("Valitse: ")
+
+        if choice == "1":
+            show_spendings(repository)
+
+        elif choice == "2":
+            add_spending(repository)
+
+        elif choice == "3":
+            search_by_month(repository)
+
+        elif choice == "4":
+            edit_spending(repository)
+
+        elif choice == "5":
+            delete_spending(repository)
+
+        elif choice == "6":
+            print("Moikka!")
+            break
+
+        else:
+            print("Virheellinen valinta.")
+
+    conn.close()
+
+
 if __name__ == "__main__":
-    print("Hello! Welcome")
-    try:
-        main()
-        if main():
-            conn = sqlite3.connect("db.db")
-            conn.close()
-    except KeyboardInterrupt:
-        print("\nInterrupted! Saving data and exiting...")
-        print("Data saved. Goodbye!")           
+    main()

@@ -1,17 +1,10 @@
-
 DROP TABLE IF EXISTS spendings;
 DROP TABLE IF EXISTS users;
-CREATE TABLE  users(
-    id INTEGER,
-    name VARCHAR,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id));
+
 CREATE TABLE spendings (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     month VARCHAR(10),
-    user_id INTEGER,
     description VARCHAR,
-    amount INTEGER,
-    time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    amount REAL,
+    time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
