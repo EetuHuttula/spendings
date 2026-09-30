@@ -55,7 +55,7 @@ def delete_spendings():
     cur.execute("""DELETE FROM spendings where id = ?""", (del_input,))
     conn.commit()
 
-def edit_spendingsa():
+def edit_spendings():
     rows = cur.execute(
         "SELECT id, month, amount, description FROM spendings"
     ).fetchall()

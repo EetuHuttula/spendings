@@ -9,7 +9,7 @@ CREATE TABLE  users(
 CREATE TABLE spendings (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     month VARCHAR(10),
-    user_id INTEGER NOT NULL,
+    user_id INTEGER,
     description VARCHAR,
     amount INTEGER,
     time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
