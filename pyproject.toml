@@ -3,7 +3,7 @@ name = "spendingsApp"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Eetu Huttula",email = ""}
+    {name = "Eetu Huttula",email = "eetuhuttula99@gmail.com"}
 ]
 license = {text = "MIT"}
 requires-python = "^3.12"
@@ -12,6 +12,8 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "pytest (>=9.1.1,<10.0.0)",
+    "pytest (>=9.1.1,<10.0.0)"
 ]
 
 [tool.poetry]

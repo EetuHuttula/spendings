@@ -1,5 +1,5 @@
 import sqlite3
-from repositories.spendings_repository import search_spendings, insert_spendings, search_spendings_based_on_month, delete_spendings, edit_spendings
+from src.repositories.spendings_repository import search_spendings, insert_spendings, search_spendings_based_on_month, delete_spendings, edit_spendings
 
 def main():
 
