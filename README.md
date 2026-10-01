@@ -1,4 +1,4 @@
-[![CI](https://github.com/EetuHuttula/spendings/actions/workflows/main.yml/badge.svg)](https://github.com/EetuHuttula/spendings/actions/workflows/main.yml)
+[![CI](https://github.com/EetuHuttula/spendings/actions/workflows/main.yml/badge.svg)](https://github.com/EetuHuttula/spendings/actions/workflows/main.yml) [![codecov](https://codecov.io/gh/EetuHuttula/spendings/graph/badge.svg?token=GL2H63CQZF)](https://codecov.io/gh/EetuHuttula/spendings)
 
 # Spendings MVP
 
