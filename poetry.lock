@@ -247,4 +247,4 @@ testing = ["process-tests", "pytest-xdist", "virtualenv"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.12"
-content-hash = "952913ad5e6a286c3260b6c6a27b320c25727212271b196ee1c69491fbee51a2"
+content-hash = "63256ac0fbf4aa216e982a1a2f8f895dacc4f44e46d49f38e3c0982d2aa98c5e"

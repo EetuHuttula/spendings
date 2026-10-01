@@ -16,21 +16,23 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - name: Install Poetry
         run: pipx install poetry==2.5.1
+
       - name: Install dependencies
         run: poetry install
-      - name: Run pytest
-        run: poetry run pytest
-  
-      - name: add codecov 
-        run: poetry add codecov
 
-      - name: collect coverage  
-        run: poetry run coverage html
+      - name: Run tests with coverage
+        run: poetry run coverage run -m pytest
+
+      - name: Generate coverage reports
+        run: |
+          poetry run coverage report
+          poetry run coverage xml
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-    
+          files: ./coverage.xml
