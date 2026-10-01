@@ -23,28 +23,14 @@ jobs:
       - name: Run pytest
         run: poetry run pytest
   
-      - name: Run tests and collect coverage
-        runs-on: ubuntu-latest
-        steps:
-          - name: Checkout
-            uses: actions/checkout@v4
-            with:
-              fetch-depth: 2
+      - name: add codecov 
+        run: poetry add codecov
 
-          - name: Set up Python
-            uses: actions/setup-python@v4
+      - name: collect coverage  
+        run: poetry run coverage html
 
-          - name: Install dependencies
-            run: pip install pytest pytest-cov
-
-          - name: Run tests
-            run: poetry run pytest 
-
-          - name: collect coverage  
-            run: poetry run coverage html
-
-          - name: Upload results to Codecov
-            uses: codecov/codecov-action@v5
-            with:
-              token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload results to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
     
